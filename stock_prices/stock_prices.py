@@ -5,10 +5,10 @@ import argparse
 
 def find_max_profit(prices):
     current_buy = prices[0]
-    max_profit = 0
-    for price in prices:
+    max_profit = prices[1] - prices[0]
+    for price in prices[1:]:
+        sell = price - current_buy
         current_buy = price if price < current_buy else current_buy
-        sell = price - current_buy if current_buy > 0 else 0
         max_profit = sell if sell > max_profit else max_profit
     return max_profit
 
